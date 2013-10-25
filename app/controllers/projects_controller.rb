@@ -1,6 +1,10 @@
 class ProjectsController < InheritedResources::Base
   before_filter :authenticate_hacker!, :except => [:index, :show]
 
+  def index
+    super
+  end
+
   def show
     show! do
       @hacker_is_owner = current_hacker == @project.owner
