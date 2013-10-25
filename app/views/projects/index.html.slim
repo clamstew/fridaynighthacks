@@ -9,6 +9,10 @@
     .project.light-box
       h2 = link_to project.name, project_path(project)
       .description #{project.description}
+      -if project.checkins.last
+        .latest-checkin 
+          strong Latest Checkin: 
+          | #{project.checkins.last.description} -- #{project.checkins.last.hacker.name}
 
       .project-hackers
         a.lfloat href=project_path(project)
